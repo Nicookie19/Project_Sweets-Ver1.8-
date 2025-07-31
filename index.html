@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Treatx' Pastries</title>
+    <link rel="stylesheet" href="pastry_business.css" />
+</head>
+<body>
+    <header>
+        <h1>Treatx'</h1>
+        <p>treat yourself with treatx'♡</p>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#pastry-gallery">Pastries</a></li>
+                <li><a href="#special-offers">Special Offers</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#order-form-section">Order</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about-us" class="about-us">
+        <h2>About Us</h2>
+        <p>At Treatx', we believe in crafting the finest pastries with love and passion. Our bakery has been serving delightful treats made from the freshest ingredients for over a decade. We are committed to quality, taste, and customer satisfaction.</p>
+    </section>
+
+    <section id="pastry-gallery" class="pastry-gallery">
+        <h2>Our Pastries</h2>
+        <p>📦 ₱150 per box (4 pieces)</p>
+        <div class="pastries">
+            <div class="pastry-item">
+                <h3>🍓 Berry Blush – Strawberry</h3>
+                <button class="learn-more-btn" data-pastry="berry_blush">Learn More</button>
+            </div>
+            <div class="pastry-item">
+                <h3>🫐 Berry XD – Blueberry</h3>
+                <button class="learn-more-btn" data-pastry="berry_xd">Learn More</button>
+            </div>
+            <div class="pastry-item">
+                <h3>🍪 Cookie Cloud – Cookies & Cream</h3>
+                <button class="learn-more-btn" data-pastry="cookie_cloud">Learn More</button>
+            </div>
+            <div class="pastry-item">
+                <h3>🥭 Sunny Munch – Mango</h3>
+                <button class="learn-more-btn" data-pastry="sunny_munch">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="special-offers" class="special-offers">
+        <h2>Special Offers</h2>
+        <ul>
+            <li>Buy 2 Classic Croissants, get 1 free!</li>
+            <li>20% off on all French Macarons this weekend.</li>
+            <li>Free delivery on orders over $50.</li>
+        </ul>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-item">
+            <p>"The croissants are absolutely delicious and fresh every time!" - Sarah K.</p>
+        </div>
+        <div class="testimonial-item">
+            <p>"I love the variety of pastries and the friendly service." - James L.</p>
+        </div>
+        <div class="testimonial-item">
+            <p>"Treatx' is my go-to bakery for special occasions." - Emily R.</p>
+        </div>
+    </section>
+
+    <section class="order-form-section" id="order-form-section">
+        <h2>Place Your Order</h2>
+        <form class="order-form" action="#" method="POST" id="order-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required aria-required="true" />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required aria-required="true" />
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" />
+
+            <label for="pastry">Select Pastry:</label>
+            <select id="pastry" name="pastry" required aria-required="true">
+                <option value="">--Please choose an option--</option>
+                <option value="croissant">Classic Croissant</option>
+                <option value="macaron">French Macaron</option>
+                <option value="cupcake">Vanilla Cupcake</option>
+                <option value="cheesecake">Classic Cheesecake</option>
+                <option value="fruit_tart">Fresh Fruit Tart</option>
+                <option value="chocolate_eclair">Chocolate Eclair</option>
+            </select>
+
+            <label for="quantity">Quantity:</label>
+            <div class="quantity-control">
+                <button type="button" id="decrement">-</button>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" required aria-required="true" />
+                <button type="button" id="increment">+</button>
+            </div>
+
+            <label for="pickup-date">Preferred Pickup Date:</label>
+            <input type="date" id="pickup-date" name="pickup-date" required aria-required="true" />
+
+            <p id="total-price">Total Price: $0.00</p>
+
+            <button type="submit">Submit Order</button>
+        </form>
+        <p id="form-message" role="alert" aria-live="polite"></p>
+    </section>
+
+    <footer>
+        <div class="newsletter">
+            <h3>Subscribe to our Newsletter</h3>
+            <form id="newsletter-form">
+                <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Enter your email" required aria-required="true" />
+                <button type="submit">Subscribe</button>
+            </form>
+            <p id="newsletter-message" role="alert" aria-live="polite"></p>
+        </div>
+        <p>Contact us: treatx@example.com | Phone: (123) 456-7890</p>
+        <p>&copy; 2024 Treatx' Pastries</p>
+    </footer>
+
+    <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
+        <div class="modal-content">
+            <button id="modal-close" aria-label="Close modal">&times;</button>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script>
+        // Pastry details for modal
+        const pastryDetails = {
+            berry_blush: "Berry Blush is a delightful strawberry-flavored pastry box containing 4 pieces of fresh, fruity treats.",
+            berry_xd: "Berry XD features blueberry-flavored pastries, perfect for berry lovers. Each box contains 4 pieces.",
+            cookie_cloud: "Cookie Cloud offers cookies & cream flavored pastries, with 4 delicious pieces per box.",
+            sunny_munch: "Sunny Munch is a mango-flavored pastry box with 4 pieces of tropical goodness."
+        };
+
+        // Modal functionality
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDescription = document.getElementById('modal-description');
+        const modalClose = document.getElementById('modal-close');
+
+        document.querySelectorAll('.learn-more-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const pastry = button.getAttribute('data-pastry');
+                modalTitle.textContent = button.previousElementSibling.previousElementSibling.textContent;
+                modalDescription.textContent = pastryDetails[pastry];
+                modal.style.display = 'block';
+                modal.setAttribute('aria-hidden', 'false');
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                modal.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        // Quantity increment/decrement buttons
+        const decrementBtn = document.getElementById('decrement');
+        const incrementBtn = document.getElementById('increment');
+        const quantityInput = document.getElementById('quantity');
+
+        decrementBtn.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+                updateTotalPrice();
+            }
+        });
+
+        incrementBtn.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+            updateTotalPrice();
+        });
+
+        // Price list for pastries
+        const pastryPrices = {
+            croissant: 3.5,
+            macaron: 2.5,
+            cupcake: 4.0,
+            cheesecake: 5.0,
+            fruit_tart: 4.5,
+            chocolate_eclair: 4.0
+        };
+
+        const pastrySelect = document.getElementById('pastry');
+        const totalPriceEl = document.getElementById('total-price');
+
+        function updateTotalPrice() {
+            const selectedPastry = pastrySelect.value;
+            const quantity = parseInt(quantityInput.value);
+            if (selectedPastry && pastryPrices[selectedPastry]) {
+                const total = pastryPrices[selectedPastry] * quantity;
+                totalPriceEl.textContent = `Total Price: $${total.toFixed(2)}`;
+            } else {
+                totalPriceEl.textContent = 'Total Price: $0.00';
+            }
+        }
+
+        pastrySelect.addEventListener('change', updateTotalPrice);
+        quantityInput.addEventListener('input', updateTotalPrice);
+
+        // Form submission with validation feedback
+        const orderForm = document.getElementById('order-form');
+        const formMessage = document.getElementById('form-message');
+
+        orderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (orderForm.checkValidity()) {
+                formMessage.textContent = 'Thank you for your order! We will contact you soon.';
+                formMessage.style.color = 'lightgreen';
+                orderForm.reset();
+                updateTotalPrice();
+            } else {
+                formMessage.textContent = 'Please fill out all required fields correctly.';
+                formMessage.style.color = 'red';
+            }
+        });
+
+        // Newsletter subscription form
+        const newsletterForm = document.getElementById('newsletter-form');
+        const newsletterMessage = document.getElementById('newsletter-message');
+
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletter-email');
+            if (emailInput.checkValidity()) {
+                newsletterMessage.textContent = 'Thank you for subscribing!';
+                newsletterMessage.style.color = 'lightgreen';
+                newsletterForm.reset();
+            } else {
+                newsletterMessage.textContent = 'Please enter a valid email address.';
+                newsletterMessage.style.color = 'red';
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Initial total price update
+        updateTotalPrice();
+    </script>
+
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+
+    <script>
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Dark mode toggle
+        const darkModeToggle = document.createElement('button');
+        darkModeToggle.id = 'dark-mode-toggle';
+        darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
+        darkModeToggle.textContent = '🌙 Dark Mode';
+        document.body.insertBefore(darkModeToggle, document.body.firstChild);
+
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeToggle.textContent = '☀️ Light Mode';
+            } else {
+                darkModeToggle.textContent = '🌙 Dark Mode';
+            }
+        });
+
+        // Accessibility: Close modal with Escape key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+                modal.setAttribute('aria-hidden', 'true');
+            }
+        });
+    </script>
+</body>
+</html>
