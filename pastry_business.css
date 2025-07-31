@@ -1,9 +1,9 @@
 /* Color Palette */
 :root {
-    --background-color: #CDC392; /* Updated background color as per user request */
-    --primary-color: #7B2D26;
-    --secondary-color: #4A1F1A;
-    --accent-color: #A64B43;
+    --background-color: #F4D6D3; /* soft pastel pink */
+    --primary-color: #6B4C3B; /* softer muted brown */
+    --secondary-color: #A67B5B; /* warm muted brown */
+    --accent-color: #C48F65; /* warm muted accent */
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --header-font: 'Brush Script MT', cursive;
     --transition-speed: 0.3s;
@@ -15,14 +15,8 @@ body {
     background-color: var(--background-color);
     color: var(--primary-color);
     scroll-behavior: smooth;
-    outline: 5px solid #7B2D26; /* Updated outline color as per user request */
-    background-image: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1) 10px,
-        transparent 10px,
-        transparent 20px
-    );
+    background-image: url('images/gingham-texture.png'); /* subtle textured background */
+    background-repeat: repeat;
     transition: background-color var(--transition-speed) ease;
 }
 
@@ -30,9 +24,10 @@ header {
     text-align: center;
     padding: 3rem 1rem 2rem 1rem;
     background-color: var(--background-color);
-    box-shadow: 0 4px 15px rgba(123, 45, 38, 0.3);
+    box-shadow: 0 4px 15px rgba(107, 76, 59, 0.3);
     border-radius: 0 0 20px 20px;
     position: relative;
+    outline: 5px solid var(--secondary-color); /* Updated outline color to match new palette */
 }
 
 header h1 {
@@ -44,6 +39,7 @@ header h1 {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    /* outline: 2px solid var(--accent-color); Removed outline to remove box around website name */
 }
 
 header h1::before {
