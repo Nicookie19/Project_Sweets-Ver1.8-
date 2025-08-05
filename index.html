@@ -31,24 +31,24 @@
         <p>📦 ₱150 per box (4 pieces)</p>
         <div class="pastries">
             <div class="pastry-item">
-                <img src="images/berry_blush.jpg" alt="Berry Blush Strawberry Pastry" />
-                <h3>🍓 Berry Blush – Strawberry</h3>
-                <button class="learn-more-btn" data-pastry="berry_blush">Learn More</button>
+                <img src="images/berry_blush.jpg" alt="Berry Blush Mochi" />
+                <h3>🍓 Berry Blush Mochi</h3>
+                <button class="learn-more-btn" data-pastry="Berry Blush Mochi">Learn More</button>
             </div>
             <div class="pastry-item">
-                <img src="images/berry_xd.jpg" alt="Berry XD Blueberry Pastry" />
-                <h3>🍇 Berry XD – Blueberry</h3>
-                <button class="learn-more-btn" data-pastry="berry_xd">Learn More</button>
+                <img src="images/berry_xd.jpg" alt="Berry XD Mochi" />
+                <h3>🍇 Berry XD Mochi</h3>
+                <button class="learn-more-btn" data-pastry="Berry XD Mochi">Learn More</button>
             </div>
             <div class="pastry-item">
-                <img src="images/cookie_cloud.jpg" alt="Cookie Cloud Cookies & Cream Pastry" />
-                <h3>🍪 Cookie Cloud – Cookies & Cream</h3>
-                <button class="learn-more-btn" data-pastry="cookie_cloud">Learn More</button>
+                <img src="images/cookie_cloud.jpg" alt="Cookie Cloud Mochi" />
+                <h3>🍪 Cookie Cloud Mochi</h3>
+                <button class="learn-more-btn" data-pastry="Cookie Cloud Mochi">Learn More</button>
             </div>
             <div class="pastry-item">
-                <img src="images/sunny_munch.jpg" alt="Sunny Munch Mango Pastry" />
-                <h3>🥭 Sunny Munch – Mango</h3>
-                <button class="learn-more-btn" data-pastry="sunny_munch">Learn More</button>
+                <img src="images/sunny_munch.jpg" alt="Sunny Munch Mango Mochi" />
+                <h3>🥭 Sunny Munch Mango Mochi</h3>
+                <button class="learn-more-btn" data-pastry="Sunny Munch Mochi">Learn More</button>
             </div>
         </div>
     </section>
@@ -58,7 +58,7 @@
         <ul>
             <li>Buy 2 Classic Croissants, get 1 free!</li>
             <li>20% off on all French Macarons this weekend.</li>
-            <li>Free delivery on orders over $50.</li>
+            <li>Free delivery on orders over ₱50.</li>
         </ul>
     </section>
 
@@ -87,15 +87,15 @@
             <label for="phone">Phone:</label>
             <input type="tel" id="phone" name="phone" />
 
-            <label for="pastry">Select Pastry:</label>
-            <select id="pastry" name="pastry" required aria-required="true">
+            <label for="Mochi">Select Pastry:</label>
+            <select id="Mochi" name="Mochi" required aria-required="true">
                 <option value="">--Please choose an option--</option>
-                <option value="croissant">Classic Croissant</option>
-                <option value="macaron">French Macaron</option>
-                <option value="cupcake">Vanilla Cupcake</option>
-                <option value="cheesecake">Classic Cheesecake</option>
-                <option value="fruit_tart">Fresh Fruit Tart</option>
-                <option value="chocolate_eclair">Chocolate Eclair</option>
+                <option value="Berry Blush Mochi">Berry Blush Mochi</option>
+                <option value="Berry XD Mochi">Berry XD Mochi</option>
+                <option value="Cookie Cloud Mochi">Cookie Cloud Mochi</option>
+                <option value="Sunny Munch Mochi">Sunny Munch Mochi</option>
+                <option value="Mini Donuts">Mini Donuts</option>
+                <option value="Coming soon....">Coming Soon</option>
             </select>
 
             <label for="quantity">Quantity:</label>
@@ -108,7 +108,7 @@
             <label for="pickup-date">Preferred Pickup Date:</label>
             <input type="date" id="pickup-date" name="pickup-date" required aria-required="true" />
 
-            <p id="total-price">Total Price: $0.00</p>
+            <p id="total-price">Total Price: ₱0.00</p>
 
             <button type="submit">Submit Order</button>
         </form>
@@ -117,7 +117,7 @@
 
     <footer>
         <div class="newsletter">
-            <h3>Subscribe to our Newsletter</h3>
+            <h3>Subscribe to our Newsletter</h3>/*@Treatx.com/*
             <form id="newsletter-form">
                 <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Enter your email" required aria-required="true" />
                 <button type="submit">Subscribe</button>
@@ -125,11 +125,11 @@
             <p id="newsletter-message" role="alert" aria-live="polite"></p>
         </div>
         <div class="social-media">
-            <a href="https://facebook.com/treatx" aria-label="Facebook" target="_blank" rel="noopener noreferrer">📘</a>
+            <a href="https://facebook.com/treatxs" aria-label="Facebook" target="_blank" rel="noopener noreferrer">📘</a>
             <a href="https://instagram.com/treatx" aria-label="Instagram" target="_blank" rel="noopener noreferrer">📸</a>
             <a href="https://twitter.com/treatx" aria-label="Twitter" target="_blank" rel="noopener noreferrer">🐦</a>
         </div>
-        <p>Contact us: treatx@example.com | Phone: (123) 456-7890</p>
+        <p>Contact us: Treatx.com | Phone: (123) 456-7890</p>
         <p>&copy; 2024 Treatx' Pastries</p>
     </footer>
 
@@ -187,7 +187,7 @@
             let currentValue = parseInt(quantityInput.value);
             if (currentValue > 1) {
                 quantityInput.value = currentValue - 1;
-                updateTotalPrice();
+                updateTotalPrice();/*gwapo si nico
             }
         });
 
@@ -201,7 +201,7 @@
         const pastryPrices = {
             croissant: 3.5,
             macaron: 2.5,
-            cupcake: 4.0,
+            cupcake: 4.0,ncjdjfj
             cheesecake: 5.0,
             fruit_tart: 4.5,
             chocolate_eclair: 4.0
