@@ -16,10 +16,30 @@
                 <li><a href="#pastry-gallery">Pastries</a></li>
                 <li><a href="#special-offers">Special Offers</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#location">Visit Us</a></li>
                 <li><a href="#order-form-section">Order</a></li>
             </ul>
         </nav>
     </header>
+
+    <!-- Hero Section with Carousel -->
+    <section class="hero-section">
+        <div class="hero-carousel">
+            <div class="carousel-slide active">
+                <img src="images/hero-pastry1.jpg" alt="Fresh pastries daily" />
+                <div class="hero-content">
+                    <h2>Freshly Baked Daily</h2>
+                    <p>Experience the finest pastries made with love</p>
+                    <button class="cta-button" onclick="scrollToSection('pastry-gallery')">Explore Menu</button>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="images/hero-pastry2.jpg" alt="Custom cakes" />
+                <div class="hero-content">
+                    <h2>Custom Orders Welcome</h2>
+                    <p>Perfect for birthdays, weddings & special occasions</p>
+                    <button class="cta-button" onclick="scrollToSection('order-form-section')">Order Now</button>
 
     <section id="about-us" class="about-us">
         <h2>About Us</h2>
@@ -95,7 +115,7 @@
                 <option value="Cookie Cloud Mochi">Cookie Cloud Mochi</option>
                 <option value="Sunny Munch Mochi">Sunny Munch Mochi</option>
                 <option value="Mini Donuts">Mini Donuts</option>
-                <option value="Coming soon....">Coming Soon</option>
+                <option value="Coming soon....">Coming Soon....</option>
             </select>
 
             <label for="quantity">Quantity:</label>
@@ -117,12 +137,12 @@
 
     <footer>
         <div class="newsletter">
-            <h3>Subscribe to our Newsletter</h3>/*@Treatx.com/*
+            <h3>For More Queries</h3>@Treatx' Pastries
             <form id="newsletter-form">
-                <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Enter your email" required aria-required="true" />
-                <button type="submit">Subscribe</button>
+                <input type="email" id="Query" name="Query" placeholder="Ask Us" required aria-required="true" />
+                <button type="submit">Send</button>
             </form>
-            <p id="newsletter-message" role="alert" aria-live="polite"></p>
+            <p id="Queries" role="alert" aria-live="polite"></p>
         </div>
         <div class="social-media">
             <a href="https://www.facebook.com/profile.php?id=61578005041102&mibextid=wwXIfr&rdid=KDRrKMHoF7zR54et&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16h3MiYUu6%2F%3Fmibextid%3DwwXIfr" aria-label="Facebook" target="_blank" rel="noopener noreferrer">📘</a>
@@ -187,7 +207,7 @@
             let currentValue = parseInt(quantityInput.value);
             if (currentValue > 1) {
                 quantityInput.value = currentValue - 1;
-                updateTotalPrice();/*gwapo si nico
+                updateTotalPrice();
             }
         });
 
@@ -201,7 +221,7 @@
         const pastryPrices = {
             croissant: 3.5,
             macaron: 2.5,
-            cupcake: 4.0,ncjdjfj
+            cupcake: 4.0,
             cheesecake: 5.0,
             fruit_tart: 4.5,
             chocolate_eclair: 4.0
@@ -294,7 +314,7 @@
         const darkModeToggle = document.createElement('button');
         darkModeToggle.id = 'dark-mode-toggle';
         darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
-        darkModeToggle.textContent = '🌙 Dark Mode';
+        darkModeToggle.textContent = '🌙';
         document.body.insertBefore(darkModeToggle, document.body.firstChild);
 
         darkModeToggle.addEventListener('click', () => {

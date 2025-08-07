@@ -4,18 +4,18 @@
     --primary-color: #6B4C3B; /* softer muted brown */
     --secondary-color: #A67B5B; /* warm muted brown */
     --accent-color: #C48F65; /* warm muted accent */
-    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family: 'Poppins', 'Roboto', sans-serif;
     --header-font: 'Brush Script MT', cursive;
-    --transition-speed: 0.3s;
+    --transition-speed: 0.6s;
 }
 
 body {
     background-image: repeating-conic-gradient(
         from 0deg,
-        #eec8c5 0deg 10deg,
+        #ecc3c0 0deg 10deg,
         #ffffff 10deg 20deg,
-        #eec8c5  20deg 30deg,
-        #eec8c5  30deg 40deg,
+        #ecc3c0  20deg 30deg,
+        #ecc3c0  30deg 40deg,
         #ffffff 40deg 50deg
     );
     background-size: 300% 300%;
@@ -573,14 +573,14 @@ footer {
 #back-to-top {
     display: none;
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 8px;
     background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
     color: var(--background-color);
     border: none;
-    padding: 0.75rem 1rem;
+    padding: 0.45rem 1rem;
     font-size: 1.5rem;
-    border-radius: 50%;
+    border-radius: 35%;
     cursor: pointer;
     box-shadow: 0 6px 12px rgba(123, 45, 38, 0.6);
     transition: background var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
@@ -727,6 +727,38 @@ body.dark-mode #back-to-top {
     background: linear-gradient(45deg, #7b2d26, #a64b43);
     color: #fbeedf;
     box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode toggle button styling */
+#dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(107, 76, 59, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 47px;
+    height: 47px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+    background: rgba(107, 76, 59, 1);
+    transform: scale(1.1);
+}
+
+body.dark-mode #dark-mode-toggle {
+    background: rgba(196, 143, 101, 0.9);
+    color: #1f1f1f;
+}
+
+body.dark-mode #dark-mode-toggle:hover {
+    background: rgba(196, 143, 101, 1);
 }
 
 /* Responsive */
