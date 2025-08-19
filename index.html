@@ -66,22 +66,22 @@
             <div class="pastry-item">
                 <img src="red.jpg" alt="Berry Blush Mochi" />
                 <h3>🍓 Berry Blush Mochi</h3>
-                <button class="learn-more-btn" data-pastry="Berry Blush Mochi">Learn More</button>
+                <button class="learn-more-btn" data-pastry="Berry Blush Mochi">Learn More!</button>
             </div>
             <div class="pastry-item">
                 <img src="blue.jpg" alt="Berry XD Mochi" />
                 <h3>🍇 Berry XD Mochi</h3>
-                <button class="learn-more-btn" data-pastry="Berry XD Mochi">Learn More</button>
+                <button class="learn-more-btn" data-pastry="Berry XD Mochi">Learn More!</button>
             </div>
             <div class="pastry-item">
                 <img src="brown.jpg" alt="Cookie Cloud Mochi" />
                 <h3>🍪 Cookie Cloud Mochi</h3>
-                <button class="learn-more-btn" data-pastry="Cookie Cloud Mochi">Learn More</button>
+                <button class="learn-more-btn" data-pastry="Cookie Cloud Mochi">Learn More!</button>
             </div>
             <div class="pastry-item">
                 <img src="yellow.jpg" alt="Sunny Munch Mango Mochi" />
                 <h3>🥭 Sunny Munch Mango Mochi</h3>
-                <button class="learn-more-btn" data-pastry="Sunny Munch Mochi">Learn More</button>
+                <button class="learn-more-btn" data-pastry="Sunny Munch Mochi">Learn More!</button>
             </div>
         </div>
     </section>
@@ -89,9 +89,9 @@
     <section id="special-offers" class="special-offers">
         <h2>Special Offers</h2>
         <ul>
-            <li>Buy 2 Classic Croissants, get 1 free!</li>
-            <li>20% off on all French Macarons this weekend.</li>
-            <li>Free delivery on orders over ₱50.</li>
+            <li>Buy 2 Boxes, get 1 free!</li>
+            <li>20% off on all Pastires this weekend.</li>
+            <li>Free delivery on orders over ₱300.</li>
         </ul>
     </section>
 
@@ -104,7 +104,74 @@
             <p>"I love the variety of the mini donuts." - Nico M.</p>
         </div>
         <div class="testimonial-item">
-            <p>"Treatx' is my go-to pastry shope for special occasions." - Karl E.</p>
+            <p>"Treatx' is my go-to pastries for special occasions." - Karl E.</p>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="faq-box">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How do I place an order?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can place an order through our website by filling out the order form, or you can contact us directly via email at treatx.buiz@gmail.com or phone at 09611206458 / 09670028291.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What are your delivery options?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer pickup and delivery services. Free delivery is available for orders over ₱300. For orders below ₱300, delivery fees apply based on your location.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How long do your pastries stay fresh?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our mochi and pastries are best consumed within 2-3 days when stored in the refrigerator. They can last up to 1 week if properly sealed and refrigerated.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do you offer custom orders for events?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We specialize in custom orders for birthdays, weddings, corporate events, and other special occasions. Please contact us at least 3-5 days in advance for custom orders.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What payment methods do you accept?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept cash, GCash, bank transfers, and major credit cards. Payment details will be provided when you place your order.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Are your products suitable for people with dietary restrictions?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Some of our products can be made gluten-free or with reduced sugar upon request. Please let us know about any dietary restrictions when placing your order.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -119,6 +186,9 @@
 
             <label for="phone">Phone:</label>
             <input type="tel" id="phone" name="phone" />
+
+            <label for="address">Pick-Up Address:</label>
+            <input type="text" id="address" name="address" required aria-required="true" />
 
             <label for="Mochi">Select Pastry:</label>
             <select id="Mochi" name="Mochi" required aria-required="true">
@@ -175,40 +245,42 @@
     </div>
 
     <script>
-        // Pastry details for modal
-        const pastryDetails = {
-            berry_blush: "Berry Blush is a delightful strawberry-flavored pastry box containing 4 pieces of fresh, fruity treats.",
-            berry_xd: "Berry XD features blueberry-flavored pastries, perfect for berry lovers. Each box contains 4 pieces.",
-            cookie_cloud: "Cookie Cloud offers cookies & cream flavored pastries, with 4 delicious pieces per box.",
-            sunny_munch: "Sunny Munch is a mango-flavored pastry box with 4 pieces of tropical goodness."
-        };
+        document.addEventListener('DOMContentLoaded', () => {
+            // Pastry details for modal
+            const pastryDetails = {
+                "Berry Blush Mochi": "🍓 Berry Blush – A strawberry cheesecake in mochi form, sweet berries and tangy cream cheese for a refreshing classic bite.",
+                "Berry XD Mochi": "🍇 Berry XD – A burst of juicy blueberries balanced with velvety cream cheese; just like your favorite blueberry cheesecake.",
+                "Cookie Cloud Mochi": "🍪 Cookie Cloud – Oreo cheesecake vibes in every bite, crushed cookies blended into smooth cream cheese inside pillowy mochi.",
+                "Sunny Munch Mochi": "🥭 Sunny Munch – A tropical cheesecake twist! sweet mango meets creamy cheese for a sunny, melt-in-your-mouth experience."
+            };
 
-        // Modal functionality
-        const modal = document.getElementById('modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalDescription = document.getElementById('modal-description');
-        const modalClose = document.getElementById('modal-close');
+            // Modal functionality
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const modalClose = document.getElementById('modal-close');
 
-        document.querySelectorAll('.learn-more-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const pastry = button.getAttribute('data-pastry');
-                modalTitle.textContent = button.previousElementSibling.previousElementSibling.textContent;
-                modalDescription.textContent = pastryDetails[pastry];
-                modal.style.display = 'block';
-                modal.setAttribute('aria-hidden', 'false');
+            document.querySelectorAll('.learn-more-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const pastry = button.getAttribute('data-pastry');
+                    modalTitle.textContent = pastry;
+                    modalDescription.textContent = pastryDetails[pastry];
+                    modal.style.display = 'block';
+                    modal.setAttribute('aria-hidden', 'false');
+                });
             });
-        });
 
-        modalClose.addEventListener('click', () => {
-            modal.style.display = 'none';
-            modal.setAttribute('aria-hidden', 'true');
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
+            modalClose.addEventListener('click', () => {
                 modal.style.display = 'none';
                 modal.setAttribute('aria-hidden', 'true');
-            }
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    modal.setAttribute('aria-hidden', 'true');
+                }
+            });
         });
 
         // Quantity increment/decrement buttons
@@ -298,6 +370,28 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+            });
+        });
+
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isExpanded = question.getAttribute('aria-expanded') === 'true';
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.setAttribute('aria-expanded', 'false');
+                    q.nextElementSibling.style.maxHeight = null;
+                    q.querySelector('.faq-icon').textContent = '+';
+                });
+                
+                // Toggle current FAQ
+                if (!isExpanded) {
+                    question.setAttribute('aria-expanded', 'true');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    question.querySelector('.faq-icon').textContent = '−';
+                }
             });
         });
 

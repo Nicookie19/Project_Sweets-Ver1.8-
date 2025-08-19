@@ -309,7 +309,7 @@ header p {
 }
 
 .special-offers ul li::before {
-    content: "🔥";
+    content: "🍩";
     position: absolute;
     left: 0;
     top: 0.2rem;
@@ -829,6 +829,93 @@ body.dark-mode .new-pastries {
 }
 
 
+/* FAQ Section Styles */
+.faq-section {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem 1rem;
+}
+
+.faq-box {
+    background: linear-gradient(135deg, #f9f9f9 0%, #f5f5f5 100%);
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(123, 45, 38, 0.15);
+    outline: 5px solid var(--secondary-color);
+    padding: 2.5rem 2rem;
+}
+
+.faq-box h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(123, 45, 38, 0.1);
+    outline: 2px solid var(--secondary-color);
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 1.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: rgba(196, 143, 101, 0.1);
+}
+
+.faq-question[aria-expanded="true"] {
+    background-color: rgba(196, 143, 101, 0.2);
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-question[aria-expanded="true"] .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 1.5rem;
+    color: var(--secondary-color);
+    line-height: 1.6;
+}
+
+.faq-answer p {
+    margin: 1rem 0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 1.5rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .pastries {
@@ -857,6 +944,16 @@ body.dark-mode .new-pastries {
 
     footer {
         font-size: 0.9rem;
+        padding: 1rem;
+    }
+
+    .faq-box {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .faq-question {
+        font-size: 1.1rem;
         padding: 1rem;
     }
 }
