@@ -44,11 +44,11 @@
     </div>
     <div class="pastry-card">
     <div class="pastry-name">New Release!</div>
-    <img src="d5.jpg" alt="">
+    <img src="assorted1.jpg" alt="">
     </div>
     <div class="pastry-card">
     <div class="pastry-name">New Release!</div>
-    <img src="mochi.jpg" alt="">
+    <img src="assorted.jpg" alt="">
     </div>
 </div>
 </section>
@@ -64,22 +64,22 @@
         <p>📦 ₱150 per box (4 pieces)</p>
         <div class="pastries">
             <div class="pastry-item">
-                <img src="red.jpg" alt="Berry Blush Mochi" />
+                <img src="strawberry.jpg" alt="Berry Blush Mochi" />
                 <h3>🍓 Berry Blush Mochi</h3>
                 <button class="learn-more-btn" data-pastry="Berry Blush Mochi">Learn More!</button>
             </div>
             <div class="pastry-item">
-                <img src="blue.jpg" alt="Berry XD Mochi" />
+                <img src="blueberry.jpg" alt="Berry XD Mochi" />
                 <h3>🍇 Berry XD Mochi</h3>
                 <button class="learn-more-btn" data-pastry="Berry XD Mochi">Learn More!</button>
             </div>
             <div class="pastry-item">
-                <img src="brown.jpg" alt="Cookie Cloud Mochi" />
+                <img src="cookiecloud.jpg" alt="Cookie Cloud Mochi" />
                 <h3>🍪 Cookie Cloud Mochi</h3>
                 <button class="learn-more-btn" data-pastry="Cookie Cloud Mochi">Learn More!</button>
             </div>
             <div class="pastry-item">
-                <img src="yellow.jpg" alt="Sunny Munch Mango Mochi" />
+                <img src="mango.jpg" alt="Sunny Munch Mango Mochi" />
                 <h3>🥭 Sunny Munch Mango Mochi</h3>
                 <button class="learn-more-btn" data-pastry="Sunny Munch Mochi">Learn More!</button>
             </div>
@@ -177,7 +177,7 @@
 
     <section class="order-form-section" id="order-form-section">
         <h2>Place Your Order</h2>
-        <form class="order-form" action="#" method="POST" id="order-form">
+        <form class="order-form" action="submit_order.php" method="POST" id="order-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required aria-required="true" />
 
@@ -197,7 +197,8 @@
                 <option value="Berry XD Mochi">Berry XD Mochi</option>
                 <option value="Cookie Cloud Mochi">Cookie Cloud Mochi</option>
                 <option value="Sunny Munch Mochi">Sunny Munch Mochi</option>
-                <option value="Mini Donuts">Mini Donuts</option>
+                <option value="Assorted Mochi">Assorted Mochi</option>
+                <option value="Box of Mini Donuts">Mini Donuts</option>
                 <option value="Coming soon....">Coming Soon....</option>
             </select>
 
@@ -302,27 +303,30 @@
             updateTotalPrice();
         });
 
-        // Price list for pastries
+        // Price list for pastries (in pesos)
         const pastryPrices = {
-            croissant: 3.5,
-            macaron: 2.5,
-            cupcake: 4.0,
-            cheesecake: 5.0,
-            fruit_tart: 4.5,
-            chocolate_eclair: 4.0
+            "Berry Blush Mochi": 50,    // ₱50 each
+            "Berry XD Mochi": 50,       // ₱50 each
+            "Cookie Cloud Mochi": 50,   // ₱50 each
+            "Sunny Munch Mochi": 50,    // ₱50 each
+            "Assorted Mochi": 150,      // ₱150 flat rate
+            "Box of Mini Donuts": 150,  // ₱150 flat rate
+            "Coming soon....": 0        // ₱0 placeholder
         };
 
-        const pastrySelect = document.getElementById('pastry');
+        const pastrySelect = document.getElementById('Mochi');
         const totalPriceEl = document.getElementById('total-price');
 
         function updateTotalPrice() {
             const selectedPastry = pastrySelect.value;
             const quantity = parseInt(quantityInput.value);
+            
             if (selectedPastry && pastryPrices[selectedPastry]) {
-                const total = pastryPrices[selectedPastry] * quantity;
-                totalPriceEl.textContent = `Total Price: $${total.toFixed(2)}`;
+                let price = pastryPrices[selectedPastry];
+                const total = price * quantity;
+                totalPriceEl.textContent = `Total Price: ₱${total.toFixed(2)}`;
             } else {
-                totalPriceEl.textContent = 'Total Price: $0.00';
+                totalPriceEl.textContent = 'Total Price: ₱0.00';
             }
         }
 
@@ -333,13 +337,32 @@
         const orderForm = document.getElementById('order-form');
         const formMessage = document.getElementById('form-message');
 
-        orderForm.addEventListener('submit', (e) => {
+        orderForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             if (orderForm.checkValidity()) {
-                formMessage.textContent = 'Thank you for your order! We will contact you soon.';
-                formMessage.style.color = 'lightgreen';
-                orderForm.reset();
-                updateTotalPrice();
+                const formData = new FormData(orderForm);
+                
+                try {
+                    const response = await fetch('submit_order.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        formMessage.textContent = 'Thank you for your order! We will contact you soon.';
+                        formMessage.style.color = 'lightgreen';
+                        orderForm.reset();
+                        updateTotalPrice();
+                    } else {
+                        formMessage.textContent = 'Error: ' + result.message;
+                        formMessage.style.color = 'red';
+                    }
+                } catch (error) {
+                    formMessage.textContent = 'Network error. Please try again.';
+                    formMessage.style.color = 'red';
+                }
             } else {
                 formMessage.textContent = 'Please fill out all required fields correctly.';
                 formMessage.style.color = 'red';

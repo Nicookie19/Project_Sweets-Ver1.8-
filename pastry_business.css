@@ -911,9 +911,78 @@ body.dark-mode .new-pastries {
     margin: 1rem 0;
 }
 
-.faq-item.active .faq-answer {
-    max-height: 200px;
-    padding: 1.5rem;
+/* Admin Panel Styles */
+#view-orders, #manage-orders {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(123, 45, 38, 0.15);
+}
+
+#view-orders table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#view-orders th,
+#view-orders td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#view-orders th {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: #ff9800;
+    font-weight: bold;
+}
+
+.status-completed {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.status-cancelled {
+    color: #f44336;
+    font-weight: bold;
+}
+
+#manage-orders form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 1rem;
+    align-items: end;
+}
+
+#manage-orders label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+#manage-orders input,
+#manage-orders select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#manage-orders button {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 /* Responsive */
